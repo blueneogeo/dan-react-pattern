@@ -30,9 +30,9 @@ export class TodoApp extends React.Component<Props, State> {
     return <div>
         <h1>here are your todos:</h1>
         <ul>
-        { this.state.todos.map(todo =>
-            <TodoEntry todo={todo}/>
-        )}
+            { this.state.todos.map(todo =>
+                <TodoEntry todo={todo}/>
+            )}
         </ul>
     </div>
   }
@@ -185,7 +185,7 @@ export class TodoEntry extends React.PureComponent<Props> {
         <checkbox 
             defaultChecked={this.props.todo.done}
             onClick={this.onClickCheckbox}
-            />
+        />
     </div>
   }
 

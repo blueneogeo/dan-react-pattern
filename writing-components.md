@@ -95,13 +95,13 @@ To make this work in our example, the `ItemCard` needs to be passed the `item` t
 
 interface Props {
     item: Item
-    onClick: (item: Item) => void
+    onClick: (Item) => void
 }
 
 export class ItemCard extends React.PureComponent<Props> {
 
     render() {
-        return <div href="#" onClick={this.onCardClicked}>
+        return <div href="#" onClick={onCardClicked}>
             // card content
         </div>
     }
