@@ -46,7 +46,7 @@ produce(state => {
 })
 ```
 
-However we recommend you use the update wrapper from DAN:
+However we recommend you use the [update wrapper](recommended.md#the-update-method) from DAN:
 
 ```typescript
 update(this, state => {
