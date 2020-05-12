@@ -134,12 +134,12 @@ export class TodoEntry extends React.PureComponent<Props> {
         <span>{this.props.todo.title} -</span>
         <checkbox 
             defaultChecked={this.props.todo.done}
-            onClick={this.onClickCheckbox}
+            onChange={this.onChangeCheckbox}
         />
     </div>
   }
 
-  @boundMethod onClickCheckbox(e) {
+  @boundMethod onChangeCheckbox(e) {
       this.props.onComplete()
   }
 }
