@@ -1,7 +1,5 @@
 # Example Todo App
 
-
-
 Let’s illustrate the pattern by building a little todo app:
 
 ```typescript
@@ -28,16 +26,16 @@ export class TodoApp extends React.Component<Props, State> {
         this.state = { todos: [] }
     }
 
-  render() {
-    return <div>
-        <h1>here are your todos:</h1>
-        <ul>
-        { this.state.todos.map(todo =>
-            <TodoEntry todo={todo}/>
-        )}
-        </ul>
-    </div>
-  }
+    render() {
+        return <div>
+            <h1>here are your todos:</h1>
+            <ul>
+                { this.state.todos.map(todo =>
+                    <TodoEntry todo={todo}/>
+                )}
+            </ul>
+        </div>
+    }
 }
 ```
 
@@ -124,6 +122,7 @@ Let’s implement our `TodoEntry`:
 ```typescript
 TodoEntry.tsx:
 
+
 interface Props {
     todo: Todo
     onComplete: () => void
@@ -131,19 +130,19 @@ interface Props {
 
 export class TodoEntry extends React.PureComponent<Props> {
 
-  render() {
-    return <div>
-        <span>{this.props.todo.title} -</span>
-        <checkbox 
-            defaultChecked={this.props.todo.done}
-            onClick={this.onClickCheckbox}
+    render() {
+        return <div>
+            <span>{this.props.todo.title} -</span>
+            <checkbox
+                defaultChecked={this.props.todo.done}
+                onChange={this.onChangeCheckbox}
             />
-    </div>
-  }
+        </div>
+    }
 
-  @boundMethod onClickCheckbox(e) {
-      this.props.onComplete()
-  }
+    @boundMethod onChangeCheckbox(e) {
+        this.props.onComplete()
+    }
 }
 ```
 
@@ -176,25 +175,25 @@ TodoEntry.tsx:
 
 interface Props {
     todo: Todo
-    onComplete: (Todo) => void // we pass back the todo now
+    onComplete: (todo: Todo) => void // we pass back the todo now
 }
 
 export class TodoEntry extends React.PureComponent<Props> {
 
-  render() {
-    return <div>
-        <span>{this.props.todo.title} -</span>
-        <checkbox 
-            defaultChecked={this.props.todo.done}
-            onClick={this.onClickCheckbox}
+    render() {
+        return <div>
+            <span>{this.props.todo.title} -</span>
+            <checkbox
+                defaultChecked={this.props.todo.done}
+                onClick={this.onClickCheckbox}
             />
-    </div>
-  }
+        </div>
+    }
 
-  @boundMethod onClickCheckbox(e) {
-      // pass back the thing we completed
-      this.props.onComplete(this.props.todo)
-  }
+    @boundMethod onClickCheckbox(e) {
+        // pass back the thing we completed
+        this.props.onComplete(this.props.todo)
+    }
 }
 ```
 

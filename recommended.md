@@ -45,17 +45,17 @@ The standard [`Immer.produce`](https://immerjs.github.io/immer/docs/produce) met
  * @returns a promise of the updated state, after the update has asynchronously been performed
  */
 export async function update<State>(component: React.Component<any, State>, updateFunction: (draft: State) => void) {
-  return new Promise<State>(resolve => {
-    component.setState(produce(produceFn), resolve)
-  })
+    return new Promise<State>(resolve => {
+        component.setState(produce(produceFn), resolve)
+    })
 
-  /** This wrapper function is used so if the updateFunction returns a value, this value is discared.
-   * This allows usage of the update method like this:
-   * ```update(this, state => state.loading = true)```
-   */
-  function produceFn(state: State) {
-    updateFunction(state)
-  }
+    /** This wrapper function is used so if the updateFunction returns a value, this value is discared.
+     * This allows usage of the update method like this:
+     * ```update(this, state => state.loading = true)```
+     */
+    function produceFn(state: State) {
+        updateFunction(state)
+    }
 
 }
 ```

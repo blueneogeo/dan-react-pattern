@@ -115,7 +115,7 @@ export class MyTestApp extends React.Component<Props, State> {
 // MyTestAppTemplate
 
 export function template(app: MyTestApp) {
-    return /* complex render code here ... */
+    return ... complex render code here ...
 }
 ```
 
