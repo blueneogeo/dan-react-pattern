@@ -1,5 +1,7 @@
 # Example Todo App
 
+
+
 Let’s illustrate the pattern by building a little todo app:
 
 ```typescript
@@ -30,9 +32,9 @@ export class TodoApp extends React.Component<Props, State> {
     return <div>
         <h1>here are your todos:</h1>
         <ul>
-            { this.state.todos.map(todo =>
-                <TodoEntry todo={todo}/>
-            )}
+        { this.state.todos.map(todo =>
+            <TodoEntry todo={todo}/>
+        )}
         </ul>
     </div>
   }
@@ -134,12 +136,12 @@ export class TodoEntry extends React.PureComponent<Props> {
         <span>{this.props.todo.title} -</span>
         <checkbox 
             defaultChecked={this.props.todo.done}
-            onChange={this.onChangeCheckbox}
-        />
+            onClick={this.onClickCheckbox}
+            />
     </div>
   }
 
-  @boundMethod onChangeCheckbox(e) {
+  @boundMethod onClickCheckbox(e) {
       this.props.onComplete()
   }
 }
@@ -174,7 +176,7 @@ TodoEntry.tsx:
 
 interface Props {
     todo: Todo
-    onComplete: (todo: Todo) => void // we pass back the todo now
+    onComplete: (Todo) => void // we pass back the todo now
 }
 
 export class TodoEntry extends React.PureComponent<Props> {
@@ -185,7 +187,7 @@ export class TodoEntry extends React.PureComponent<Props> {
         <checkbox 
             defaultChecked={this.props.todo.done}
             onClick={this.onClickCheckbox}
-        />
+            />
     </div>
   }
 
